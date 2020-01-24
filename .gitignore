@@ -1,0 +1,4 @@
+.DS_Store
+.serverless/
+local-bucket/
+node_modules/

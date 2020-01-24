@@ -1,7 +1,7 @@
 # Udacity Bertelsmann Technical Scholarship Cloud Track Challenge Collaboration
 This repo contains the team project deliverables from the cloud track challenge program.
  ---
-#### _Project development is currently under way, deliverables will added incrementally to this repo. Follow us to watch this space :sunglasses:!_
+#### _Project development is currently under way, deliverables will be added incrementally to this repo. Follow us to watch this space :sunglasses:!_
 
 ![png](BertelsmannChallenge.png)
 

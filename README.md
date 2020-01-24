@@ -30,7 +30,7 @@ The team comprises of [Adrik S](https://github.com/Adriks976), [Audrey ST](https
 > *
 >
  ---
- ### About AWS Cloudformation
+ ### About Cloud DevOps Model Built on Serverless Framework and AWS Services
  > * construction in progress...
  >
  >

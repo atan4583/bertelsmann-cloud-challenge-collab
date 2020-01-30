@@ -1,0 +1,26 @@
+{
+  "name": "bertelsmann-cloud-challenge-collaborate",
+  "version": "1.0.0",
+  "description": "This repo contains the team project deliverables from the cloud track challenge program.  --- #### _Project development is currently under way, deliverables will be added incrementally to this repo. Follow us to watch this space :sunglasses:!_",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atan4583/bertelsmann-cloud-challenge-collaborate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/atan4583/bertelsmann-cloud-challenge-collaborate/issues"
+  },
+  "homepage": "https://github.com/atan4583/bertelsmann-cloud-challenge-collaborate#readme",
+  "dependencies": {
+    "serverless": "^1.62.0"
+  },
+  "devDependencies": {
+    "serverless-offline": "^5.12.1",
+    "serverless-s3-local": "^0.5.4"
+  }
+}

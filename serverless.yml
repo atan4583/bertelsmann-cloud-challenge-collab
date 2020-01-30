@@ -1,0 +1,12 @@
+service: backend
+provider:
+  name: aws
+plugins:
+  - serverless-offline
+  - serverless-s3-local
+resources:
+  Resources:
+    Bucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: udacity-ai-backend

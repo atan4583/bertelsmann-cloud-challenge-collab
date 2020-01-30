@@ -2,3 +2,4 @@
 .serverless/
 local-bucket/
 node_modules/
+.env

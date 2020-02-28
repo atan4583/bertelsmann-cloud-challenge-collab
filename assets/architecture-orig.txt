@@ -1,0 +1,35 @@
+@startuml
+
+
+actor "User"
+actor "Admin"
+
+package "Web Stack" {
+	() HTTP_web - [Web Frontend] 
+	() HTTP_service_layer - [Service Layer] 
+	
+	folder "backend" as BE{
+	() HTTP_flask - [Flask Service]  
+	[Prediction Engine] as PE
+	}
+}
+
+package "Training"{
+	[Training Engine] as TE 
+}
+
+database "datastore"{
+	[User texts and labels] as UTL
+	[Model] as N
+}
+
+[Service Layer] --> HTTP_flask
+[Service Layer] -> UTL : uploads
+[Web Frontend] --> HTTP_service_layer
+TE ..> N : updates
+TE ..> UTL : uses
+PE ..> N : uses
+[Flask Service] .> PE : serves
+User --> HTTP_web : calls 
+Admin --> TE : calls
+@enduml

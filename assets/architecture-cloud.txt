@@ -1,0 +1,75 @@
+@startuml Architecture Sketch Technical View
+
+!define AWSPuml https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/master/dist
+!includeurl AWSPuml/AWSCommon.puml
+
+' Uncomment the following line to create simplified view
+' !includeurl AWSPuml/AWSSimplified.puml
+
+!includeurl AWSPuml/AWSCommon.puml
+!includeurl AWSPuml/General/Users.puml
+!includeurl AWSPuml/Storage/S3Bucket.puml
+!includeurl AWSPuml/Mobile/APIGateway.puml
+!includeurl AWSPuml/SecurityIdentityAndCompliance/Cognito.puml
+!includeurl AWSPuml/Compute/Lambda.puml
+!includeurl AWSPuml/Compute/ECSService.puml
+!includeurl AWSPuml/Database/DynamoDB.puml
+
+actor "User"
+actor "Admin"
+
+
+
+package "Web Stack" {
+	() HTTP_web - [Web Frontend] 
+	' () HTTP_service_layer - [Service Layer] 
+
+
+    Lambda(getSentiment, "Get Sentiment", "return predicted sentiment")
+    Lambda(setSentiment, "Set Sentiment", "store approved sentiment")
+    Lambda(createCsv, "Create CSV", "creayes CSV file with sentiments")
+    S3Bucket(webFiles, "Web Files", "HTML and JavaScript files")
+	
+    DynamoDB(predDB, "Prediction Database", "one entry per approved prediction")
+
+    
+    rectangle "ECS container \n prediction engines \n <color:green><$ECSService></color>"{
+        folder "flask engine " <<Docker Container >> as BE{
+            () HTTP_flask - [Flask Service]  
+            [Prediction Engine] as PE
+        }
+    }
+
+}
+
+
+package "Training"{
+	[Training Engine] as TE 
+}
+
+database "datastore"{
+	[User texts and labels] as UTL
+	[Model] as N
+
+    S3Bucket(modelStore, "Prediction Store", "Storage for Neural Network")
+}
+
+
+[Web Frontend] --> webFiles : uses
+[Web Frontend] --> getSentiment : uses
+[Web Frontend] --> setSentiment : uses
+
+
+TE ..> N : updates
+TE ..> UTL : uses and updates with predictions
+TE ..> predDB : reads
+PE ..> N : uses
+N --> modelStore : utilizes
+[Flask Service] .> PE : serves
+User --> HTTP_web : calls 
+Admin --> TE : calls
+Admin --> createCsv : calls
+getSentiment --> HTTP_flask : calls
+setSentiment --> predDB : stores
+createCsv --> predDB : reads
+@enduml

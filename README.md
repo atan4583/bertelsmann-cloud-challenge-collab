@@ -1,7 +1,7 @@
 # Udacity Bertelsmann Technical Scholarship Cloud Track Challenge Project - Deploy An AI Sentiment Prediction App to AWS Cloud
 This repo is the project page of the 3 project repos and contains information about the project.
  ---
-#### _The project was created by 3 scholars from the Cloud Track Challenge_
+#### _[Audrey](https://github.com/atan4583), [Adrik](https://github.com/Adriks976) and [Christopher](https://github.com/christopherrauh) from the Cloud Track Challenge are the co-creators of this project_
 
 ![png](assets/BertelsmannChallenge.png)
 ## Project Website: :star2: **[AI Sentiment Prediction App on AWS](http://ai-frontend.s3-website-us-west-2.amazonaws.com/)** :star2:
